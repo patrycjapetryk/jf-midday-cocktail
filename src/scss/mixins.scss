@@ -1,0 +1,6 @@
+@import 'variables';
+
+@mixin reset-margin {
+  margin: 0;
+  padding: 0;
+}

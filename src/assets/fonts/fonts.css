@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Gordita';
+  font-style: normal;
+  font-weight: 300;
+  src: url(Gordita-Regular.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Gordita';
+  font-style: bold;
+  font-weight: 500;
+  src: url(Gordita-Medium.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Druk';
+  font-style: bold;
+  font-weight: 500;
+  src: url(Druk-Wide-Bold.woff2) format('woff2');
+}

@@ -1,0 +1,36 @@
+@import '../assets/fonts/fonts.css';
+
+@import 'variables';
+@import 'mixins';
+
+@import './modules/header.scss';
+@import './modules/video.scss';
+@import './modules/gallery.scss';
+@import './modules/packshots.scss';
+
+.main {
+  background: white;
+  color: $red;
+  font-family: 'Druk', Arial, sans-serif;
+  font-size: 23px;
+  line-height: 1.2em;
+  box-sizing: border-box;
+  min-height: 100vh;
+  min-width: $main-min-width;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  max-width: $main-max-width;
+  margin: 0 auto 40px;
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  @media (max-width: $main-max-width) {
+    padding: 0 10px;
+  }
+}

@@ -1,0 +1,40 @@
+@import '../variables';
+@import '../mixins';
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100px 0 38px;
+  width: 100%;
+
+  &__title {
+    font-size: 70px;
+    font-weight: normal;
+    line-height: 1em;
+    max-width: 600px;
+    margin: 0;
+
+    @media (max-width: $breakpoint-mobile-width) {
+      font-size: 38px;
+      max-width: 90%;
+    }
+  }
+
+  &__subtitle {
+    font-size: 15px;
+    line-height: 1.2em;
+    max-width: 600px;
+    margin: 30px 0;
+
+    @media (max-width: $breakpoint-mobile-width) {
+      font-size: 12px;
+      max-width: 80%;
+    }
+  }
+
+  &__logo {
+    width: 180px;
+    margin: 40px 0;
+  }
+}

@@ -1,0 +1,84 @@
+@import '../variables';
+@import '../mixins';
+
+.packshots {
+  width: 100%;
+  margin-bottom: 100px;
+  overflow: hidden;
+
+  &__header {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  &__title {
+    font-size: 55px;
+    font-weight: normal;
+    margin: 10px 0 0;
+
+    @media (max-width: $breakpoint-mobile-width) {
+      font-size: 38px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    line-height: 1.2em;
+    display: inline-block;
+    margin: 30px 0 40px;
+
+    @media (max-width: $breakpoint-mobile-width) {
+      font-size: 13px;
+      max-width: 90%;
+    }
+  }
+
+  &__container {
+    width: 300%;
+    display: flex;
+    justify-content: space-around;
+    animation: carousel 20s linear infinite;
+
+    &--reverse {
+      animation: carousel 18s linear infinite reverse;
+    }
+
+    @media (max-width: $breakpoint-mobile-width) {
+      width: 600%;
+    }
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__image {
+    width: calc(100% - 20px);
+    display: block;
+  }
+
+  &__link {
+    font-size: 15px;
+    line-height: 1.3em;
+    color: $red;
+    text-decoration: none;
+    display: inline-block;
+    margin: 50px auto 0;
+
+    @media (max-width: $breakpoint-mobile-width) {
+      font-size: 13px;
+      max-width: 90%;
+    }
+  }
+}
+
+@keyframes carousel {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-66.66%);
+  }
+}

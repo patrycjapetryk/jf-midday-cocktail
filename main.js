@@ -1,24 +1,55 @@
-import './style.css';
-import javascriptLogo from './javascript.svg';
-import viteLogo from '/vite.svg';
-import { setupCounter } from './counter.js';
+import './src/scss/main.scss';
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`;
+const galleryContainers = document.querySelectorAll('.gallery__container--js');
 
-setupCounter(document.querySelector('#counter'));
+galleryContainers.forEach((galleryContainer) => {
+  const gallery = galleryContainer.querySelector('.gallery__content--js');
+  const bottomArrow = galleryContainer.querySelector('.gallery__bottom-arrow--js');
+  const topArrow = galleryContainer.querySelector('.gallery__top-arrow--js');
+
+  let interval;
+
+  //   Scroll on hover
+
+  const downScroll = () => {
+    interval = window.setInterval(() => {
+      gallery.scrollBy(0, 10);
+    }, 10);
+  };
+
+  const upScroll = () => {
+    interval = window.setInterval(() => {
+      gallery.scrollBy(0, -10);
+    }, 10);
+  };
+
+  const stopScroll = () => {
+    clearInterval(interval);
+  };
+
+  bottomArrow.addEventListener('mouseover', downScroll);
+  bottomArrow.addEventListener('mouseout', stopScroll);
+
+  topArrow.addEventListener('mouseover', upScroll);
+  topArrow.addEventListener('mouseout', stopScroll);
+
+  //   Display the arrow depending on the scroll position
+
+  topArrow.style.display = 'none';
+
+  const displayArrow = () => {
+    if (gallery.scrollTop > 0) {
+      topArrow.style.display = 'flex';
+    } else {
+      topArrow.style.display = 'none';
+    }
+
+    if (gallery.scrollTop + gallery.offsetHeight >= gallery.scrollHeight) {
+      bottomArrow.style.display = 'none';
+    } else {
+      bottomArrow.style.display = 'flex';
+    }
+  };
+
+  gallery.addEventListener('scroll', displayArrow);
+});
